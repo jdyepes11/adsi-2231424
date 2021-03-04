@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tables</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Fullname</th>
+				<th>Email</th>
+				<th>Username</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Apu Nahasapeemapetilon</td>
+				<td>apu@gmail.com</td>
+				<td>nahasa22</td>
+			</tr>
+			<tr>
+				<td>Seymour Skinner</td>
+				<td>Seymour@gmail.com</td>
+				<td>sey40</td>
+			</tr>
+			<tr>
+				<td>Jeremias Simpson</td>
+				<td>jeremias@gmail.com</td>
+				<td>keremias66</td>
+			</tr>
+			<tr>
+				<td>Homero Simpson</td>
+				<td>homero@gmail.com</td>
+				<td>homero33</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- table[border=1]>(thead>tr>th>{title$}*3)+(tbody>tr*5>td{info$}*3) -->
+	table[border=1]>(thead>tr>th{title$}*3)+(tbody>tr*5>td{info$}*3)
+</body>
+</html>
