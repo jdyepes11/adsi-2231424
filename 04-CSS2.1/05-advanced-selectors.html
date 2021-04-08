@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Advanced selectors</title>
+	<style>
+		ul > li {
+			background-color: cadetblue;
+			margin: 5px;
+			padding: 5px;
+		}
+		ul li + li + li + li {
+			background-color: yellowgreen;
+		}
+		li[class] {
+			background-color: orchid;
+		}
+	</style>
+</head>
+<body>
+	<h1>Advanced selectors</h1>
+
+	<h2>Children Selectors ul > li</h2>
+	<h2>adjacent Selectors ul li + li + li + li</h2>
+	<h2>Attribute Selectors li[class]</h2>
+
+		<ol>
+			<li>
+				Dr.Stone
+				<ul>
+					<li class="highlight">Kohaku</li>
+					<li>Senju</li>
+					<li>Tsukasa</li>
+					<li>Chrome</li>
+				</ul>
+			</li>
+			<li>
+				Bleach
+				<ul>
+					<li class="highlight">Ulquiorra</li>
+					<li>Orihime</li>
+					<li>Ichigo</li>
+					<li>Renji</li>
+				</ul>
+			</li>
+		</ol>	
+
+</body>
+</html>
