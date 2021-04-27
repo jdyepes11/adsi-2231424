@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pseudo Classes</title>
+	<style>
+		main {
+			margin: 40px auto;
+			width: 400px;
+			position: relative;
+		}
+		menu {
+			padding-left: 0px;
+		}
+		menu ul {
+			list-style: none;
+			padding-left: 0px;
+		}
+		menu ul li {
+			display: inline-block;
+			vertical-align: top;
+		}
+		menu ul li a:link,
+		menu ul li a:visited {
+			color: #000;
+			background-color: #30C03A;
+			display: block;
+			padding: 10px 20px;
+			text-decoration: none;
+		}
+		menu ul li a:hover {
+			background-color: #fff;
+		}
+		menu ul li a:active {
+			background-color: #f9191c;
+		}
+		menu ul li:first-child a {
+			background-color: #306530;
+			color: #DBCB20;
+		}
+		input {
+			border: 1px solid #666;
+			padding: 10px 20px;
+			outline: none;
+		}
+		input:focus {
+			background-color: #ff8d30;
+			border: 1px solid #FD0101;
+		}
+		/*---*/
+		p:first-line {
+			background-color: #55d8d5;
+		}
+        p:first-letter {
+            font-size: 4em;
+        }
+        /*---*/
+        div.box {
+        	background-color: #E119BC;
+        	height: 100px;
+        	width: 100px;
+        }
+		div.box:after {
+            background-color: #d5b8;
+            content: "⌚";
+            height: 100px;
+            position: absolute;
+            left: 30px;
+            width: 100px;
+        }
+        div.box:before {
+            background-color: #7d58;
+            content: "Time";
+            height: 100px;
+            position: absolute;
+            left: 60px;
+            width: 100px;
+        }
+	</style>
+</head>
+<body>
+	<main>
+		<h3>(:link, :visited, :active:, :hover, :first-child)</h3>
+		<menu>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Services</a></li>
+				<li><a href="">Contact</a></li>
+			</ul>
+		</menu>
+		<h3>:focus</h3>
+		<input type="text" placeholder="Ingresar Nombre y Apellido">
+		<h3>:first-line, :first-letter</h3>
+		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi modi praesentium necessitatibus totam perspiciatis vel enim fuga atque, dolorum sequi dolore aut nostrum vitae laboriosam aperiam eaque voluptatibus in veritatis!</p>
+		<h3>:after, :before</h3>
+		<div class="box"></div>
+	</main>
+</body>
+</html>
