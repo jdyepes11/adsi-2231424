@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Media queries</title>
+	<style>
+		* { transition: all 0.5s ease-out }
+		body {
+			background-color: #013571;
+			color: #ffffffaa;
+			font: 16px verdana;
+			margin: 0px;
+			padding: 0px;
+		}
+		main {
+			border: 10px solid #ffffff66;
+			margin: 0px auto;
+			padding: 20px;
+		}
+		main figure.logo {
+			background: url(imgs/pepsi01.png) no-repeat center;
+			height: 354px;
+			margin: 0px auto;
+			width: 919px;
+		}
+		main h1 {
+            text-align: center;
+        }
+        main h1 small {
+            font-size: 0.4em;
+        }
+        main h1 small.bp2,
+        main h1 small.bp3 {
+            display: none;
+        }
+        main p {
+            line-height: 1.8em;
+            text-align: justify;
+        }
+
+        @media (max-width: 1024px) {
+            main figure.logo {
+                background: url(imgs/pepsi02.png) no-repeat center;
+                height: 370px;
+                width: 348px;
+            }
+            main h1 small.bp1,
+            main h1 small.bp3 {
+                display: none;
+            }
+            main h1 small.bp2 {
+                display: inline;
+            }
+        @media (max-width: 780px) {
+            main figure.logo {
+                background: url(imgs/pepsi03.png) no-repeat center;
+                height: 156px;
+                width: 162px;
+            }
+            main h1 small.bp1,
+            main h1 small.bp2 {
+                display: none;
+            }
+            main h1 small.bp3 {
+                display: inline;
+            }
+        }
+	</style>
+</head>
+<body>
+	<main>
+		<figure class="logo"></figure>
+		<h1>
+			Media Queries
+			<small class="bp1">( > 1024px)</small>
+			<small class="bp2">( < 780px)</small>
+			<small class="bp3">( < 480px)</small>
+		</h1>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio hic nemo ea harum quam, alias culpa vel expedita, cupiditate! Facilis voluptatibus fugit dolorum aspernatur laudantium earum eius voluptates repellendus facere, accusantium cum debitis assumenda soluta aliquid sint, hic doloremque animi ad. Eaque, quaerat, id. Id, similique quo assumenda. Sed rerum dolor quasi sint, itaque quos reprehenderit esse nam debitis quis ut possimus repellendus dolorem, voluptate, porro. Placeat, laborum optio voluptatem id possimus incidunt ut nam, veniam ex, vero et suscipit, aspernatur repudiandae? Quasi, a ipsam at harum ad dolorem illum sint nostrum dolore facere corporis voluptatum, nobis quod corrupti mollitia, quae eum nulla dignissimos nisi doloribus et recusandae ipsa natus est. Numquam asperiores corporis sed nostrum quia obcaecati, dicta ab suscipit accusamus minus molestias aliquam nesciunt expedita necessitatibus et illo ratione rerum ullam? Vero fugit maiores odit ipsa molestias aspernatur fuga ipsum ipsam dolorum. Placeat autem labore magnam aliquam minima cumque non atque reprehenderit adipisci odit numquam eligendi amet ab, obcaecati ad corporis nihil iusto beatae quo hic dolore ea, doloribus! Sit, quis, itaque magnam quos aliquid voluptate, perferendis dolores eveniet assumenda quo dicta suscipit, aut ratione. Tempora, magnam. Reprehenderit nesciunt amet autem accusantium illo! Esse officiis dolore dignissimos, reiciendis.
+		</p>
+	</main>
+</body>
+</html>
