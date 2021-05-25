@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Challenge Responsive</title>
+	<style>
+		* {
+			transition: all 0.5s ease-out;
+		}
+		body {
+			background-color: #000;
+			color: #E2E2E2;
+			font: 16px verdana;
+			margin: 0px auto;
+		}
+		main {
+        	margin: 0px auto;
+        	padding: 20px;
+		}
+		section.part1 figure.logo1 {
+			background: url(imgs/shamanKing01.png) no-repeat center;
+			height: 352px;
+			margin: 0px auto;
+			width: 823px;
+			background-size: contain;
+		}		
+		@media (max-width: 1024px) {
+            section.part1 figure.logo1 {
+                background: url(imgs/shamanKing02.png) no-repeat center;
+                height: 216px;
+                width: 383px;
+            }
+        }
+        @media (max-width: 780px) {
+            section.part1 figure.logo1 {
+                background: url(imgs/shamanKing03.png) no-repeat center;
+                height: 166px;
+                width: 225px;
+            }
+        }
+        /*imagenes y botones*/
+        section.part2 {
+            margin: 20px auto;
+            width: 1170px;
+            
+        }
+        section.part2 div.person {
+            display: inline-block;
+        }
+        a.mov p.text {   
+        	background-color: rgba(0, 0, 0, 0.8);
+            font-size: 100%;
+            color:#E2E2E2;
+            height: 60px;
+            margin-top: 190px;
+            width: 250px;
+            transition: all 0.08s ease-in; 
+            text-align: center;
+            line-height: 60px; 
+		}
+	    a.mov:hover p.text {
+            transform: translateY(-20px);
+            height: 80px;
+        }
+        a.mov p.text{
+            text-decoration: none;  
+        }
+        div.img1 {
+            background: url(imgs/yohAsakuraBtn01.jpg) no-repeat;  
+            background-size: cover;
+            width: 250px;
+            height: 250px;      
+        }
+        div.img2 {
+            background: url(imgs/Amidamaru.jpg) no-repeat;  
+            background-size: cover;
+            width: 250px;
+            height: 250px;    
+            margin-left: 50px;
+        }
+        div.img3 {
+            background: url(imgs/mantaOyamada.jpg) no-repeat;  
+            background-size: cover;
+            width: 250px;
+            height: 250px;
+            margin-left: 50px;    
+        } 
+        div.img4 {
+            background: url(imgs/annaKyoyama.jpg) no-repeat;  
+            background-size: cover;
+            width: 250px;
+            height: 250px;
+            margin-left: 50px;    
+        } 
+        /*Imagenes y Texto*/
+        section.part3 {
+            height: 250px;
+            width: 1170px;
+            border: 2px dotted #E2E2E2;
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        section.part3 div.logo2 {
+            background: url(imgs/yohAsakuraTxt.png);
+            background-size: cover;
+            height: 250px;
+            width: 250px;
+        } 
+        section.part3 div.logo3 {
+            background: url(imgs/haoAsakura.png);
+            background-size: cover;
+            height: 250px;
+            width: 250px;
+        }
+        section.part3 div.logo2,
+        section.part3 div.logo3,
+        section.part3 div.move {
+            display: inline-block;
+        }
+        section.part3 div.move h3 {
+            font-size: 150%;
+            margin: 25px 0px 25px 0px; 
+            text-align: center;    
+            margin-left: 50px;     
+        }
+        section.part3 div.move p {
+            font-size: 15px;
+            line-height: 23px;
+            text-align: justify;
+            width: 555px;
+            margin-top: 0px;
+            margin-left: 50px;
+        }
+        section.part3 div.move h3,
+        section.part3 div.move {
+            display: inline-block;
+            vertical-align: top; 
+        }
+        section.part3.mt {
+            margin-top: 0px;
+        }
+        /*Resoponsive move*/
+        @media (max-width: 1024px) {
+            section.part2 {
+               width: 560px;
+               height: 550px;
+            }
+            section.part2 div.img3 {
+                margin-left: 0px; 
+            }
+            section.part2 div.img3,
+            section.part2 div.img4 {
+                margin-top: 50px;
+            }
+            section.part3 {
+               width: 560px;
+            }
+            section.part3 div.move h3,
+            section.part3 div.move p {
+                margin-left: 50px;
+                width: 200px;
+            }
+            section.part3 div.move p {
+                height: 130px;
+                overflow-y: scroll;
+                margin-bottom: 20px;
+                font-size: 80%;
+            }
+            section.part3 div.move h3 {
+                font-size: 120%;
+            }
+        }
+        @media (max-width: 780px) {
+            section.part2 {
+                width:  280px;
+                height: 1170px;
+            }
+            section.part2 div.img2,
+            section.part2 div.img3,
+            section.part2 div.img4 {
+                margin-top: 50px;
+                margin-left: 0px;   
+            }
+             section.part3 {
+               height: 500px;
+               width: 250px;
+            }
+            section.part3 div.move h3 {
+                margin-left: 25px;
+            }
+            section.part3 div.move p {
+                margin-left: 25px;
+            }
+        }
+	</style>
+</head>
+<body>
+	<main>
+		<section class="part1">
+            <figure class="logo1"></figure>                
+        </section>
+		<section class="part2">
+			<div class="img1 person">  
+                <a href="" class="mov">
+                	<p class="text">Yoh Asakura</p>
+                </a>
+            </div>
+            <div class="img2 person">
+                <a href="" class="mov">
+                	<p class="text">Amidamaru</p>
+                </a>                
+            </div>
+            <div class="img3 person">
+                <a href="" class="mov">
+                	<p class="text">Manta Oyamada</p>
+                </a>
+            </div>
+            <div class="img4 person">
+                <a href="" class="mov">
+                	<p class="text">Anna Kyōyama</p>
+                </a>
+            </div>
+    	</section>
+    	<section class="part3">
+    		<div class="logo2"></div>
+                <div class="move">
+                    <h3>Yoh Asakura</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, magnam blanditiis ratione veritatis, natus illo ipsa voluptas voluptate quos saepe dicta placeat aliquid aperiam autem sit fugit minima maxime atque et laborum quidem delectus sint, animi. Iusto optio aliquid quisquam, quas mollitia quae voluptatem error eum! Sunt quibusdam facere eaque totam quaerat tenetur nostrum dolor. </p>
+                </div>
+    	</section>
+    	<br>
+    	<section class="part3 mt">
+    		<div class="logo3"></div>
+                <div class="move">
+                    <h3>Hao Asakura</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, magnam blanditiis ratione veritatis, natus illo ipsa voluptas voluptate quos saepe dicta placeat aliquid aperiam autem sit fugit minima maxime atque et laborum quidem delectus sint, animi. Iusto optio aliquid quisquam, quas mollitia quae voluptatem error eum! Sunt quibusdam facere eaque totam quaerat tenetur nostrum dolor.</p>
+                </div>
+    	</section>
+	</main>
+</body>
+</html>
