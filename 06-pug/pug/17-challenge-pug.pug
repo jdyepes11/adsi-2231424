@@ -1,0 +1,15 @@
+doctype
+html(lang="en")
+	head
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(charset="UTF-8")
+		title Challenge pug
+		style.
+			li{
+				height: 60px;
+				margin: 5px;
+				list-style: none;
+			}
+		body
+			each col in ["#f9fbe7", "#f0f4c3", "#e6ee9c", "#dce775", "#d4e157", "#cddc39", "#c0ca33", "#afb42b", "#9e9d24", "#827717"]
+				li(style='background-color:' + col)
