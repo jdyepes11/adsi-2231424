@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects Vehicle JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        div.skin {
+            width: 402px;
+            height: 748px;
+            margin: 0px auto;
+            background: url(imgs/skin.png) no-repeat;
+            position: relative;
+        }
+        section.attributes {
+            position: relative;
+            padding: 0px;
+            top: 130px;
+            left: 28px;
+        }
+        section.attributes h4 {
+            color: #E74C3C;
+            font-size: 24px;
+            font-family: 'Lobster', cursive;
+            font-weight: 400;
+            margin: 0px;
+            position: absolute;
+        }
+        section.attributes h4#txt-reference {
+            left: 192px;
+        }
+        section.attributes h4#txt-color {
+            top: 92px;
+        }
+        section.attributes h4#txt-model {
+            top: 92px;
+            left: 192px;
+        }
+        button {
+            border: none;
+            display: block;
+            transition: all 0.2s ease-in;
+        }
+        button:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        button#bt-dark {
+            background: url(imgs/bt-dark.png) no-repeat;
+            height: 48px;
+            width: 48px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        section.controls {
+            border: 2px solid red;
+            padding: 0px;
+            position: relative;
+            top: 660px;
+            left: 20px;
+        }
+        section.controls button {
+            width: 68px;
+            height: 68px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Objects Vehicle JS</h1>
+        </header>
+        <section>
+            <div class="skin">
+                <button id="bt-dark"></button>
+                <section class="attributes">
+                    <h4 id="txt-brand"></h4>
+                    <h4 id="txt-reference"></h4>
+                    <h4 id="txt-color"></h4>
+                    <h4 id="txt-model"></h4>
+                </section>
+                <section class="controls">
+                    <button id="bt-on">ON</button>
+                    <button id="bt-off">OFF</button>
+                    <button id="bt-stop">STOP</button>
+                    <button id="bt-fw">FW</button>
+                    <button id="bt-bw">BW</button>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        //Variables
+        var tbrand     = document.getElementById('txt-brand')
+        var treference = document.getElementById('txt-reference')
+        var tcolor     = document.getElementById('txt-color')
+        var tmodel     = document.getElementById('txt-model')
+
+        var vehicle = {
+            
+            //Attributes
+            brand: 'Porche',
+            reference: 911,
+            color: 'Red',
+            model: 'Carrera',
+            
+            //Methods
+            showAttibutes: function() {
+                tbrand.innerText     = this.brand 
+                treference.innerText = this.reference 
+                tcolor.innerText     = this.color 
+                tmodel.innerText     = this.model 
+            },
+        }
+        vehicle.showAttibutes()
+    </script>
+    
+</body>
+</html>
