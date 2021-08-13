@@ -1,0 +1,92 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge conditionals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+       html {
+           font-size: 16px;
+       }
+       figure.conditional {
+           width: 394px;
+           height: 740px;
+           margin: 0px auto;
+           position: relative;
+           background: linear-gradient(90.4deg, #39C0FF 0.26%, #FF9184 103.23%);
+           border: 1px solid #630C0C;
+           border-radius: 30px;
+           box-shadow: inset 4px 4px 40px 10px #33333340;
+           box-sizing: border-box;
+        }
+       figure.conditional h4,
+       figure.conditional h2 {
+            font-family: Kaushan Script;
+            font-style: normal;
+            position: absolute;
+            font-weight: normal;
+        }
+       
+       figure.conditional h2{
+           background: none;
+           
+           font-size: 35px;
+           text-align: center;
+           color: #255B58;
+           top: -18px;
+       }
+       figure.conditional h4 {
+            color: #397A76;
+            font-size: 25px;
+            line-height: 36px;
+            text-align: center;
+            top: 124px;
+            left: 103px;
+       }
+       figure.conditional input[type=checkbox] {
+           appearance: none;
+           background: transparent url(imgs/conditionals/boy.svg) no-repeat center;
+           position: absolute;
+           width: 120px;
+           height: 179px;
+           top: 183px;
+           left: 36px;
+       }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Challenge conditionals</h1>
+        </header>
+        <section>
+           <figure class="conditional">
+               <h2>Please fill in the true information</h2>
+               <h4>choose your gender</h4>
+               <input type="checkbox">
+           </figure>
+        </section>
+    </main>
+
+    <script>
+        // Variables
+        const circles = document.querySelectorAll('input[type=checkbox]');
+        // Events
+        for (let i = 0; i < circles.length; i++) {
+            circles[i].onclick = function() {
+                if(this.checked) {
+                    circles[0].checked = false;
+                    circles[1].checked = false;
+                    this.checked = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

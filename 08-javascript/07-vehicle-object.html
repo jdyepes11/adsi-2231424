@@ -10,24 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Light Mode */
         div.skin {
             width: 402px;
             height: 748px;
             margin: 0px auto;
             background: url(imgs/skin.png) no-repeat;
             position: relative;
+            transition: all 0.5s ease-in;
         }
         section.attributes {
             position: relative;
             padding: 0px;
-            top: 130px;
-            left: 28px;
+            top: 125px;
+            left: 25px;
         }
         section.attributes h4 {
             color: #E74C3C;
             font-size: 24px;
             font-family: 'Lobster', cursive;
-            font-weight: 400;
+            font-weight: 400px;
             margin: 0px;
             position: absolute;
         }
@@ -45,6 +47,7 @@
             border: none;
             display: block;
             transition: all 0.2s ease-in;
+            text-indent: 9999px;
         }
         button:hover{
             cursor: pointer;
@@ -59,16 +62,77 @@
             top: 20px;
         }
         section.controls {
-            border: 2px solid red;
             padding: 0px;
             position: relative;
             top: 660px;
-            left: 20px;
+            left: 17px;
         }
         section.controls button {
-            width: 68px;
-            height: 68px;
+            width: 76px;
+            height: 76px;
             display: inline-block;
+            vertical-align: text-top;
+            margin-left: -5px;
+        }
+        section.controls button#bt-on {
+            background: url(imgs/bt-on.png) no-repeat;
+        }
+        section.controls button#bt-off {
+            background: url(imgs/bt-off.png) no-repeat;
+        }
+        section.controls button#bt-stop {
+            background: url(imgs/bt-stop.png) no-repeat;
+        }
+        section.controls button#bt-fw {
+            background: url(imgs/bt-fw.png) no-repeat;
+        }
+        section.controls button#bt-bw {
+            background: url(imgs/bt-bw.png) no-repeat;
+        }
+
+        /* Dark Mode */
+        div.skin.dark {
+            background: url(imgs/skin-dark.png) no-repeat;
+        }
+        div.skin.dark button#bt-dark {
+            background: url(imgs/bt-light.png) no-repeat;
+        }
+        div.skin.dark button#bt-on {
+            background: url(imgs/bt-ond.png) no-repeat;
+        }
+        div.skin.dark button#bt-off {
+            background: url(imgs/bt-offd.png) no-repeat;
+        }
+        div.skin.dark button#bt-stop {
+            background: url(imgs/bt-stopd.png) no-repeat;
+        }
+        div.skin.dark button#bt-fw {
+            background: url(imgs/bt-fwd.png) no-repeat;
+        }
+        div.skin.dark button#bt-bw {
+            background: url(imgs/bt-bwd.png) no-repeat;
+        }        
+        div.skin.dark section.attributes h4 {
+            color: #196D7D;
+        } 
+        div.skin.dark figure#porche {
+            background: url(imgs/dark-porche.png) no-repeat;
+        }
+        /* Porche */
+        figure#porche {
+            background: url(imgs/porche.png) no-repeat;
+            height: 243px;
+            width: 243px;
+            position: absolute;
+            top: 400px;
+            left: 38px;
+        }
+        figure#porche.on {
+            animation: anim_on 0.2s infinite;
+        }
+        @keyframes anim_on {
+            0%, 100% { top:400px; }
+            50% { top: 396px; }
         }
     </style>
 </head>
@@ -86,6 +150,7 @@
                     <h4 id="txt-color"></h4>
                     <h4 id="txt-model"></h4>
                 </section>
+                <figure id="porche"></figure>
                 <section class="controls">
                     <button id="bt-on">ON</button>
                     <button id="bt-off">OFF</button>
@@ -104,6 +169,18 @@
         var tcolor     = document.getElementById('txt-color')
         var tmodel     = document.getElementById('txt-model')
 
+        var btdark  = document.getElementById('bt-dark')
+        var bton    = document.getElementById('bt-on')
+        var btoff   = document.getElementById('bt-off')
+        var btstop  = document.getElementById('bt-stop')
+        var btfw    = document.getElementById('bt-fw')
+        var btbw    = document.getElementById('bt-bw')
+
+        var porche  = document.getElementById('porche')
+        var skin    = document.querySelector ('div.skin')
+        var dmode   = false
+        var engine  = false
+
         var vehicle = {
             
             //Attributes
@@ -119,9 +196,59 @@
                 tcolor.innerText     = this.color 
                 tmodel.innerText     = this.model 
             },
+            darkmode: function() {
+                if (dmode == false) {
+                    skin.classList.add('dark')
+                    dmode = true;
+                }
+                else {
+                    skin.classList.remove('dark')
+                    dmode = false
+                }                
+            },
+            on: function() {
+                if(engine == false) {
+                    porche.classList.add('on')
+                    engine = true
+                }
+            },
+            off: function() {
+                if(engine == true) {
+                    porche.classList.remove('on')
+                    engine = false
+                }
+            },
+            stop: function() {
+                alert('STOP')
+            },
+            forward: function() {
+                alert('FW')
+            },
+            backward: function() {
+                alert('BW')
+            },
         }
         vehicle.showAttibutes()
+
+        btdark.onclick = function() {
+            vehicle.darkmode()
+        }
+        bton.onclick = function() {
+            vehicle.on()
+        }
+        btoff.onclick = function() {
+            vehicle.off()
+        }
+        btstop.onclick = function() {
+            vehicle.stop()
+        }
+        btfw.onclick = function() {
+            vehicle.forward()
+        }
+        btbw.onclick = function() {
+            vehicle.backward()
+        }
     </script>
-    
+ 
 </body>
 </html>
