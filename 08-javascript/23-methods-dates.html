@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods dates</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Methodos dates</h1>
+        </header>    
+        <section>
+            <h3>GET:</h3>
+            <ul class="list-get"></ul>
+            <h3>SET:</h3>
+            <ul class="list-set"></ul>
+        </section>
+    </main>
+    <script>
+        //variables/Constants
+        const listGet    = document.querySelector('ul.list-get');
+        const listSet    = document.querySelector('ul.list-set');
+        var   todayDate  = new Date();
+        var   futureDate = new Date('2022/11/21 00:15:50');
+
+        //Get
+        listGet.innerHTML  = "<li> Current date: "+ todayDate + "</li>";
+        listGet.innerHTML += "<li> Current year: "+ todayDate.getFullYear() + "</li>";
+        listGet.innerHTML += "<li> Current month: "+ (todayDate.getMonth()+1) + "</li>";
+        listGet.innerHTML += "<li> Current weekday: "+ todayDate.getDay() + "</li>";
+        listGet.innerHTML += "<li> Current hour: "+ todayDate.getHours() + "</li>";
+        listGet.innerHTML += "<li> Current minutes: "+ todayDate.getMinutes() + "</li>";
+        listGet.innerHTML += "<li> Current seconds: "+ todayDate.getSeconds() + "</li>";
+
+        //set
+        listSet.innerHTML  = "<li> Future date: "+ futureDate + "</li>";
+        futureDate.setFullYear(2022);
+        futureDate.setMonth(10);
+        futureDate.setDate(21);
+        listSet.innerHTML += "<li> Future year: "+ futureDate.getFullYear() + "</li>";
+        listSet.innerHTML += "<li> Future month: "+ (futureDate.getMonth()+1) + "</li>";
+        listSet.innerHTML += "<li> Future weekday: "+ futureDate.getDay() + "</li>";
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo ganador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- librera animate.css para generar el movimineot de las balotas -->
+    <style>
+        div.sorteo-ganador
+        {
+            background: transparent url(imgs/balotto/bg.png) no-repeat; /*img fondo*/
+            width: 820px;
+            height: 420px;
+            margin: 80px auto;
+            position: relative;
+        }
+        div.sorteo-ganador figure.frame
+        {
+            background: transparent url(imgs/balotto/frame-1.png) no-repeat;/*img balota*/
+            margin: 0;
+            width: 108.8px;
+            height: 186.89px;           
+            padding: 0;
+            position: absolute;
+            top: 117px; 
+            font-family: Righteous;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 80px;
+            line-height: 170px;
+            text-align: center;
+            text-decoration-line: underline;
+            text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+        }
+        div.sorteo-ganador figure.frame.frame1
+        {
+            left: 17px;
+        }
+        div.sorteo-ganador figure.frame.frame2
+        {
+            left: 149px;
+        }
+        div.sorteo-ganador figure.frame.frame3
+        {
+            left: 279px;
+        }
+        div.sorteo-ganador figure.frame.frame4
+        {
+            left: 410px;
+        }
+        div.sorteo-ganador figure.frame.frame5
+        {
+            left: 541px;
+        }
+        div.sorteo-ganador figure.frame.superFrame
+        {
+            background: transparent url(imgs/balotto/frame-super.png) no-repeat; /*img super balota*/
+            color:#6B0000;
+            left: 672px;
+        }
+        div.sorteo-ganador button.btn-play
+        {
+            background: transparent url(imgs/balotto/btn-play.png) no-repeat center; /*button play*/
+            border: none;
+            bottom: 40px;
+            position: absolute;
+            transition: transform 0.2 ease-in;
+            width: 163.97px;
+            height: 59.3px;
+            left: 315px;
+        }
+        div.sorteo-ganador button.btn-play:hover
+        {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span>Sorteo ganador</h1>
+        </header>
+        <section>
+           <div class="sorteo-ganador">
+               <figure class="frame frame1 animate__animated" class="cantFrames1" id="frame1"></figure>
+               <figure class="frame frame2 animate__animated" class="cantFrames2" id="frame2"></figure>
+               <figure class="frame frame3 animate__animated" class="cantFrames3" id="frame3"></figure>
+               <figure class="frame frame4 animate__animated" class="cantFrames4" id="frame4"></figure>
+               <figure class="frame frame5 animate__animated" class="cantFrames5" id="frame5"></figure>
+               <figure class="frame superFrame animate__animated" class="superCantFrames" id="superFrame"></figure>
+               <button class="btn-play" id="play"></button>
+           </div>
+        </section>
+    </main>
+
+    <script>
+        //variables
+        const btnPlay    = document.querySelector('button.btn-play');
+        const frames     = document.querySelectorAll('figure.frame');
+        const cantFrames = document.querySelectorAll('figure.cantFrames')
+
+        btnPlay.onclick = function() {
+
+            let frame1     = Math.round(Math.random()*43);
+            let frame2     = Math.round(Math.random()*43);
+            let frame3     = Math.round(Math.random()*43);
+            let frame4     = Math.round(Math.random()*43);
+            let frame5     = Math.round(Math.random()*43);
+            let superFrame = Math.round(Math.random()*16);
+
+            
+            
+            for(let i=0; i<frames.length; i++)
+                {
+                    let cantFrames1     =document.getElementById("cantFrames1");
+                    let cantFrames2     =document.getElementById("cantFrames2");
+                    let cantFrames3     =document.getElementById("cantFrames3");
+                    let cantFrames4     =document.getElementById("cantFrames4");
+                    let cantFrames5     =document.getElementById("cantFrames5");
+                    let superCantFrames =document.getElementById("superCantFrames");
+                    
+                    frames[i].classList.remove('animate__zoomInDown')
+                    frames[i] = i + 1;
+                }
+
+            setTimeout(function() {
+                for(let i=0; i<frames.length; i++)
+                {
+                    let showFrame1           = document.getElementById("frame1");
+                    showFrame1.innerText     = (Math.round(frame1));
+
+                    let showFrame2           =document.getElementById("frame2");
+                    showFrame2.innerText     =(Math.round(frame2));
+            
+                    let showFrame3           =document.getElementById("frame3");
+                    showFrame3.innerText     =(Math.round(frame3));
+
+                     let showFrame4          =document.getElementById("frame4");
+                    showFrame4.innerText     =(Math.round(frame4));
+
+                    let showFrame5           =document.getElementById("frame5");
+                    showFrame5.innerText     =(Math.round(frame5));
+
+                    let showSuperFrame       =document.getElementById("superFrame");
+                    showSuperFrame.innerText =(Math.round(superFrame));
+                    
+                    frames[i].classList.add('animate__zoomInDown')
+                    frames[i] = i + 1;
+                }
+            }, 0)
+        }
+    </script>
+</body>
+</html>

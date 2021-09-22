@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events time</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        input, button {
+            font-size: 1.4em;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Events time</h1>
+        </header>    
+        <section>
+            <h3>setInterval (CountDown)</h3>
+            <input type="number" id="count-down" placeholder="Time in seconds">
+            <button id="btn-count-dowm">CountDown</button>
+            <h3>setTimeOut (Refresh page)</h3>
+            <input type="number" id="refresh-page" placeholder="Time in seconds">
+        </section>
+    </main>
+    <script>
+        // Variables
+        const btnCountDown = document.getElementById('btn-count-down');
+        const inputCountDown = document.getElementById('count-down')
+
+        // Events
+        btnCounDown.onclick = function() {
+            let countDown = document.getElementById('count-down').value;
+            if (countDown == 0) {
+                inputCountDown.value = countDown;
+                // setInterval
+                let setIntr = setInterval(function() {
+                    if (countDown == 0) {
+                        inputCountDown.value = countDown
+                        clearInterval(setIntr)
+                    }
+                    else {
+                        inputCountDown.value = countDown
+                    }
+                    countDown--
+                }, 1000)
+            } else {
+                alert('Please enter time in seconds')
+            }
+        }
+
+        btnRefresh.onclick = function() {
+            let refreshPage = document.getElementById('refresh-page').value;
+            if (refreshPage.Lenght > 0) {
+                refreshPage = parseInt(refreshPage)*1000
+                // setTimeout
+                setTimeout(function())
+            }
+        }
+    </script>
+</body>
+</html>
