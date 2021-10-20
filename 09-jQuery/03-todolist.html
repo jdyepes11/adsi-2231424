@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list jQuery</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        figure.todolist {
+            background-color: #fff;
+            border-radius: 20px;
+            margin: 20px auto;
+            width: 360px; 
+            padding: 10px;
+        }
+        figure.todolist header {
+            border-bottom:  1px solid #155b8a;
+            margin-bottom: 20px;
+        }
+        figure.todolist header h3 {
+            background-color: transparent;
+            display: inline-block;
+            color: #155b8a;
+            width: 42%;
+            text-align: center;
+        }
+        figure.todolist table.list {
+            width: 100%;
+        }
+        figure.todolist table.list td {
+            padding: 10px;
+            position: relative;
+        }
+        figure.todolist table.list td button {
+            border: none;
+            border-radius: 20px;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #e74c3c;
+            padding: 10px 20px;
+        }
+        figure.todlist footer {
+            margin-top: 20px;
+        }
+        figure.todlist footer input.todo {
+            border: 1px solid #155b8a;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        figure.todolist footer button {
+            border: none;
+            border-radius: 20px;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #20bd3a;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> To do list jQuery</h1>
+        </header>    
+        <section>
+            <figure class="todolist">
+                <header>
+                    <h3><span class="ntask">0 Task</span></h3>
+                    <h3><span class="nremains">0 Remain</span> </h3>
+                </header>
+                <table class="list">
+                    <tr>
+                        <td><input type="checkbox"> jQuery <button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"> Html <button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"> CSS <button>Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"> VaJS <button>Delete</button></td>
+                    </tr>
+                </table>
+                <footer>
+                    <input type="text" placeholder="Add ToDo">
+                    <button class="btnAdd">Add</button>
+                </footer>
+            </figure>
+        </section>
+    </main>
+    <!-- CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btnAdd').click(function (e) { 
+                e.preventDefault();
+                if($'.todo').val().lenght > 0 {
+                    $('.list').append('<tr><td><input type="checkbox">'+ $('.todo').val() + ' <button>Delete</button></td></tr>');
+                    $('.todo').val('');
+                    $ntask++;
+                    $('.ntask').text($ntask)
+                }
+            });
+        });
+    </script>
+</body>
+</html>

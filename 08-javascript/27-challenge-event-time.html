@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge event time</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        figure.stage {
+            height: 736px;
+            width: 414px;
+            margin: 20px auto;
+            position: relative;
+        }
+        figure.stage.hide{
+            display: none;
+        }
+        figure.stage01 {
+            background: transparent url(imgs/crash-run/bg-stage1.png) no-repeat center;   
+        }
+        figure.stage02 {
+            background: transparent url(imgs/crash-run/bg-stage2.png) no-repeat center;   
+        }
+        figure.stage01 img.logo {
+
+            position: absolute;
+            width: 282px;
+            height: 247px;
+            left: 52px;
+            top: 80px;
+        }
+        figure.stage01 button#btnPlay {
+            background: url(imgs/crash-run/btn-play.png)no-repeat center;
+            width: 354px;
+            height: 72px;
+            cursor: pointer;
+            border: none;
+            position: absolute;
+            transition: all 0.2s ease-in;
+            left: 30px;
+            top: 611px;
+        }
+        figure.stage01 button#btnPlay:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Challenge event time</h1>
+        </header>    
+        <section>
+            <figure class="stage stage01 animate__animated animate__backInUp">
+                <img src="imgs/crash-run/logo.png" class="logo">
+                <button id="btnPlay"></button>
+            </figure>
+            <figure class="stage stage02 hide animate__animated animate__backInUp">
+                
+            </figure>
+        </section>
+    </main>
+    <script>
+        // Global Variables & Constanst
+        const btnPlay = document.getElementById('btnPlay');
+        const stage01 = document.querySelector('figure.stage01');
+        const stage02 = document.querySelector('figure.stage02');
+        
+        const game = {
+            // Methods
+            PlayCrashRun= function() {
+                // stage01.classList.add('hide');
+                // stage02.classList.remove('hide');
+                alert('game')
+            }
+        }
+
+        // Events 
+        btnPLay.onclick = function() {
+            game.PlayCrashRun();
+        }
+    </script>
+</body>
+</html>
