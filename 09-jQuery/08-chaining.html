@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        img.ufo {
+            position: relative;
+            display: block;
+            margin: 100px auto;
+        }
+        section {
+            height: 600px;
+        }
+        button {
+            background-color: #2980b9;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            transition: transform 0.1s ease-out;
+            width: 100px;
+        }
+        button:hover {
+            transform: scale(1.06);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> TiTle</h1>
+        </header>    
+        <section>
+            <img class="ufo" src="images/ufo.png" width="200px">
+            <button class="btn">animate</button>
+        </section>
+    </main>
+    <!-- CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            showChaining = () => {
+                $('.ufo').hide()
+                     .slideDown(1200)  
+                     .css({transform: 'scale(2)'})
+                     .animate({transform: '100px'}, 1000)
+                     .animate({transform: '-100px'}, 1000)
+                     .slideUp(1200)
+            }
+
+            $('.btn')
+        });
+    </script>
+</body>
+</html>

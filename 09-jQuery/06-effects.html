@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effects</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        nav {
+            margin: 0px auto;
+        }
+        nav button {
+            background-color: #2980b9;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            transition: transform 0.1s ease-out;
+            width: 100px;
+        }
+        nav button:hover {
+            transform: scale(1.06);
+        }
+        nav button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        figure img.sesshomaru {
+            display: block;
+            margin: 20px auto;
+            width: 360px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Effects</h1>
+        </header>    
+        <section>
+            <nav>
+                <button class="btnHide">Hide</button>
+                <button class="btnShow">Show</button>
+                <button class="btnToggle">Toggle</button>
+                <button class="btnSlideDown">Slide down</button>
+                <button class="btnSlideUp">Slide up</button>
+                <button class="btnSlideToggle">Slide toggle</button>
+                <button class="btnFadeIn">Fade in</button>
+                <button class="btnFadeOut">Fade out</button>
+                <button class="btnFadeTo">Fade to</button>
+                <button class="btnFadeToggle">Fade toggle</button>
+                <button class="btnAnimate">Animate</button>
+                <button class="btnStop">Stop</button>
+            </nav>
+            <figure>   
+                <img class="sesshomaru" src="images/Sesshomaru.png"> <!-- imagen para usar los botones-->
+            </figure>
+        </section>
+    </main>
+    <!-- CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Variables
+            $sesshomaruIsVisible = true;
+
+            // Events
+            // Hide
+            $('.btnHide').click(function(e) {
+                $('.sesshomaru').hide();
+                $sesshomaruIsVisible = false;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // Show
+            $('.btnShow').click(function(e) {
+                $('.sesshomaru').show();
+                $sesshomaruIsVisible = true;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // Toggle
+            $('.btnToggle').click(function(e) {
+                $('.sesshomaru').toggle();
+                if ($('.sesshomaru').attr('style')) {
+                    $sesshomaruIsVisible = false;
+                } else {
+                    $sesshomaruIsVisible = true;
+                }
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // SlideDown
+            $('.btnSlideDown').click(function(e) {
+                $('.sesshomaru').slideDown(2000);
+                $sesshomaruIsVisible = true;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // SlideUp
+            $('.btnSlideUp').click(function(e) {
+                $('.sesshomaru').slideUp(2000);
+                $sesshomaruIsVisible = false;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // SlideToggle
+            $('.btnSlideToggle').click(function(e) {
+                $('.sesshomaru').slideToggle(2000);
+                setTimeout(function() {
+                    if ($('.sesshomaru').attr('style')) {
+                        $sesshomaruIsVisible = false;
+                    } else {
+                        $sesshomaruIsVisible = true;
+                    }
+                    sesshomaruVisible($sesshomaruIsVisible);
+                },2500);
+            });
+            // FadeIn
+            $('.btnFadeIn').click(function(e) {
+                $('.sesshomaru').fadeIn(2000);
+                $sesshomaruIsVisible = true;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // FadeOut
+            $('.btnFadeOut').click(function(e) {
+                $('.sesshomaru').fadeOut(2000);
+                $sesshomaruIsVisible = false;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // FadeTo
+            $('.btnFadeTo').click(function(e) {
+                $('.sesshomaru').fadeTo(2000, 0.3);
+                $sesshomaruIsVisible = true;
+                sesshomaruVisible($sesshomaruIsVisible);
+            });
+            // FadeToggle
+            $('.btnFadeToggle').click(function(e) {
+                $('.sesshomaru').fadeToggle(2000);
+                setTimeout(function() {
+                    if ($('.sesshomaru').attr('style')) {
+                        $sesshomaruIsVisible = false;
+                    } else {
+                        $sesshomaruIsVisible = true;
+                    }
+                    sesshomaruVisible($sesshomaruIsVisible);
+                },2500);
+            });
+            // Animate
+            $('.btnAnimate').click(function(e) {
+                $('.sesshomaru').animate({top: '100px'}, 1000)
+                                .animate({top: '0px'}, 1000);
+            });
+            // Stop
+            $('.btnStop').click(function(e) {
+                $('.sesshomaru').stop();
+            });
+            // Functions
+            sesshomaruVisible = ($status) => {
+                if ($status) {
+                    $('.hide').prop('disabled', false);
+                    $('.show').prop('disabled', true);
+                } else {
+                    $('.show').prop('disabled', false);
+                    $('.hide').prop('disabled', true);
+                }
+            }
+            sesshomaruVisible($sesshomaruIsVisible);
+        });
+    </script>
+</body>
+</html>

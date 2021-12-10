@@ -6,6 +6,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge Calculator</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* div.calculator */
+        div.calculator {
+            background: url(imgs/calculator/skin.svg) no-repeat center;
+            height: 736px;
+            margin: 0px auto; 
+            position: relative;
+            width: 414px;
+            transition: all 0.5s ease-out;
+        }
+
+        /*a#dark = btn-dark*/
+        div.calculator nav.mode {
+            left: 330px;
+            position: absolute;
+            top: 20px;
+            width: 60px;
+            left: 20px;
+        }
+        div.calculator nav.mode a {
+            display: inline-block;
+            height: 48px;
+            transition: transform 0.2s ease-in;
+            width: 68px;
+        }
+        div.calculator nav.mode a#dark:hover {
+            transform: scale(1.1);
+        }
+        div.calculator nav.mode a#light:hover {
+            transform: scale(1.1);
+        }
+        div.calculator nav.mode a#light {
+            background: url(imgs/calculator/btn-light-active.svg) no-repeat center;
+        }
+        div.calculator nav.mode a#dark {
+            background: url(imgs/calculator/btn-dark.svg) no-repeat center;
+        }
+        /*div.display*/
+        div.calculator div.display {
+            font-family: 'Lucida Grande', Geneva, Verdana, sans-serif;
+            position: absolute;
+            top: 120px;
+            right: 20px;
+            width: 320px;
+            text-align: right;
+            font-size: 24px;
+            height: 120px;
+        }
+        div.calculator div.display p#operation {
+            color: #191B28;
+            margin: 0px;
+            opacity: 65%;
+        }
+        div.calculator div.display h4#answer {
+            font-size: 26px;
+            font-weight: 500px;
+            color: #191B28;
+        }
+
+        /* nav.buttons */
+        div.calculator nav.buttons {
+            position:absolute;
+            top: 261px;
+            left: 20px;
+        }
+        div.calculator nav.buttons ul::selection {
+            background-color: transparent;
+        }
+        div.calculator nav.buttons ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        div.calculator nav.buttons ul li {
+            width: 89px; 
+            height: 89px;
+            display: inline-block;
+            margin: 0px 2px 0px 0px;
+            transition: transform 0.2s ease-in;
+        }
+        div.calculator nav.buttons ul li:nth-child(4n) {
+            margin-right: 0;
+        }
+        
+        div.calculator nav.buttons ul li:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        div.calculator nav.buttons ul li#btn-clear {
+            background: url(imgs/calculator/btn-C.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-reply {
+            background: url(imgs/calculator/btn-reply.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-pow {
+            background: url(imgs/calculator/btn-^.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-div {
+            background: url(imgs/calculator/btn-div.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-1 {
+            background: url(imgs/calculator/btn-1.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-2 {
+            background: url(imgs/calculator/btn-2.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-3 {
+            background: url(imgs/calculator/btn-3.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-prod {
+            background: url(imgs/calculator/btn-X.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-4 {
+            background: url(imgs/calculator/btn-4.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-5 {
+            background: url(imgs/calculator/btn-5.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-6 {
+            background: url(imgs/calculator/btn-6.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-subs {
+            background: url(imgs/calculator/btn-subs.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-7 {
+            background: url(imgs/calculator/btn-7.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-8 {
+            background: url(imgs/calculator/btn-8.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-9 {
+            background: url(imgs/calculator/btn-9.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-add {
+            background: url(imgs/calculator/btn-+.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-per {
+            background: url(imgs/calculator/btn-per.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-0 {
+            background: url(imgs/calculator/btn-0.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-dot {
+            background: url(imgs/calculator/btn-dot.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-equal {
+            background: url(imgs/calculator/btn-equal.svg) no-repeat center;
+        }
+
+        /* Dark mode */
+        div.calculator.dark {
+            background: url(imgs/calculator/skin-dark.svg) no-repeat center;
+        }
+        div.calculator.dark nav.mode a#light {
+            background: url(imgs/calculator/btn-light.svg) no-repeat center;
+        }
+        div.calculator.dark nav.mode a#dark {
+            background: url(imgs/calculator/btn-dark-active.svg) no-repeat center;
+        }
+        div.calculator.dark div.display p#operation {
+            margin: 0px;
+            opacity: 65%;
+            color: #F3F8FC
+        }
+        div.calculator.dark div.display h4#answer {
+            font-size: 26px;
+            font-weight: 500px;
+            color: #F3F8FC
+        }
+        div.calculator.dark nav.buttons ul li#btn-clear {
+            background: url(imgs/calculator/btn-C.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-reply {
+            background: url(imgs/calculator/btn-reply.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-pow {
+            background: url(imgs/calculator/btn-^.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-div {
+            background: url(imgs/calculator/btn-div.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-1 {
+            background: url(imgs/calculator/btnd-1.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-2 {
+            background: url(imgs/calculator/btnd-2.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-3 {
+            background: url(imgs/calculator/btnd-3.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-prod {
+            background: url(imgs/calculator/btn-X.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-4 {
+            background: url(imgs/calculator/btnd-4.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-5 {
+            background: url(imgs/calculator/btnd-5.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-6 {
+            background: url(imgs/calculator/btnd-6.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-subs {
+            background: url(imgs/calculator/btn-subs.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-7 {
+            background: url(imgs/calculator/btnd-7.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-8 {
+            background: url(imgs/calculator/btnd-8.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-9 {
+            background: url(imgs/calculator/btnd-9.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-add {
+            background: url(imgs/calculator/btn-+.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-per {
+            background: url(imgs/calculator/btn-per.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-0 {
+            background: url(imgs/calculator/btnd-0.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-dot {
+            background: url(imgs/calculator/btnd-dot.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-equal {
+            background: url(imgs/calculator/btn-equal.svg) no-repeat center;
+        }
+        </style>
 </head>
 <body>
     <main>
@@ -15,19 +245,210 @@
         <section>
             <div class="calculator">
                 <nav class="mode">
-                    <a href="javascript:;" class="light"></a>
-                    <a href="javascript:;" class="dark"></a>
+                    <a href="javascript:;" id="light"></a>
+                    <a href="javascript:;" id="dark"></a>
                 </nav>
                 <div class="display">
-                    <p id="operation">24+36/2</p>
-                    <h4 id= ></h4>
-                </div>                   
+                    <p id="operation"></p>
+                    <h4 id="answer"></h4>
+                </div>
+                <nav class="buttons">
+                    <ul>
+                        <li id="btn-clear"></li>
+                        <li id="btn-reply"></li>
+                        <li id="btn-pow" data-opr="**"></li>
+                        <li id="btn-div" data-opr="/"></li>
+                        <li id="btn-1"data-num="1"></li>
+                        <li id="btn-2" data-num="2"></li>
+                        <li id="btn-3" data-num="3"></li>
+                        <li id="btn-prod" data-opr="*"></li>
+                        <li id="btn-4" data-num="4"></li>
+                        <li id="btn-5" data-num="5"></li>
+                        <li id="btn-6" data-num="6"></li>
+                        <li id="btn-subs" data-opr="-"></li>
+                        <li id="btn-7" data-num="7"></li>
+                        <li id="btn-8" data-num="8"></li>
+                        <li id="btn-9" data-num="9"></li>
+                        <li id="btn-add" data-opr="+"></li>
+                        <li id="btn-per" data-opr="%"></li>
+                        <li id="btn-0" data-num="0"></li>
+                        <li id="btn-dot" data-opr="."></li>
+                        <li id="btn-equal"></li>    
+                    </ul>
+                </nav>
             </div>
         </section>
     </main>
 
     <script>
+        // Variables & Constants
+        var nchars    = 0;
+        var operation = document.getElementById('operation');
+        var answer    = document.getElementById('answer');
+        var allowOper = false;
+
+        const skin  = document.querySelector('div.calculator');
+        const light = document.getElementById('light');
+        const dark  = document.getElementById('dark');
         
+        const btnReply = document.getElementById('btn-reply');
+        const btnsNums = document.querySelectorAll('ul li[data-num]');
+        const btnsOprs = document.querySelectorAll('ul li[data-opr]');
+        const btnEqual = document.getElementById('btn-equal');
+        const btnClear = document.getElementById('btn-clear');
+
+        // Fuunctions.
+            // este se utiliza para escribir una cantidad limitada de caracteres.
+        function validateLength() {
+            if(nchars <= 19) {
+                nchars++;
+                return true;
+            } 
+            else {
+                return false;
+            }
+        }
+        
+            // Se utiliza para poder escribir varios caracteres en una linea.
+        function addCharacter(c) {
+            if(c.constructor.name == 'Number') {
+                allowOper = true;
+            }
+            
+            if(allowOper) {
+                if(validateLength()) {
+                    operation.innerText += c;
+                    if(c.constructor.name == 'String') {
+                        allowOper = false;
+                    }
+                }
+            }
+        }
+
+            // Borrar todos los caracteres del display.
+        function clearCharacters() {
+            operation.innerText = '';
+            answer.innerText = '';
+            allowOper = false;
+            nchars = 0;
+        }
+            //Borrar caracteres de a uno en el display.
+        function reply() {
+            if(nchars > 0) {
+                operation.innerText = operation.innerText.slice(0, -1);
+                nchars--;
+            }
+        }
+            //Mostrar resultados.
+        function equal() {
+            answer.innerText = eval(operation.innerText);
+        }
+
+        // Events
+        // Evento de presionar boton.
+        light.onclick = function() {
+            skin.classList.remove('dark');
+            // this.classList.add('active');
+            // dark.classList.remove('active');
+
+        }
+        dark.onclick = function() {
+            skin.classList.add('dark');
+            // this.classList.add('active');
+            // light.classList.remove('active');
+        }
+        
+            // botones numericos.
+        for (let i = 0; i < btnsNums.length; i++) {
+            btnsNums[i].onclick = function() {
+                addCharacter(parseInt(this.getAttribute('data-num')));
+            }
+        }
+            //botones de opeaciones
+        for (let i = 0; i < btnsOprs.length; i++) {
+            btnsOprs[i].onclick = function() {
+                addCharacter(this.getAttribute('data-opr'));
+            }
+        }
+
+        btnClear.onclick = function() {
+            clearCharacters();
+        }
+        btnReply.onclick = function() {
+            reply();
+        }
+        btnEqual.onclick = function() {
+            equal();
+        }
+        
+        // 21 characters to operation. keyboards events.
+        document.onkeyup = function(event) {
+            switch (event.keyCode) {
+                case 8:
+                    backSpace();
+                    break;
+                case 13:
+                    equal();
+                    break;
+                case 46:
+                    clearCharacters();
+                    break;
+                case 48:
+                    addCharacter(0);
+                    break;
+                case 49:
+                    addCharacter(1);
+                    break;
+                case 50:
+                    addCharacter(2);
+                    break;
+                case 51:
+                    addCharacter(3);
+                    break;
+                case 52:
+                    addCharacter(4);
+                    break;
+                case 53:
+                    if(event.shiftKey)
+                        addCharacter('%');
+                    else
+                        addCharacter(5);
+                    break;
+                case 54:
+                    addCharacter(6);
+                    break;
+                case 55:
+                    addCharacter(7);
+                    break;
+                case 56:
+                    addCharacter(8);
+                    break;
+                case 57:
+                    addCharacter(9);
+                    break;
+                case 187:
+                    addCharacter('+');
+                    break;
+                case 189:
+                    addCharacter('-');
+                    break;
+                case 190:
+                    addCharacter('.');
+                    break;
+                case 191:
+                    addCharacter('/');
+                    break;
+                case 219:
+                    addCharacter('**');
+                    break;
+                case 221:
+                    addCharacter('*');
+                    break;
+            
+                default:
+                    break;
+            }
+        }
     </script>
     
 </body>
